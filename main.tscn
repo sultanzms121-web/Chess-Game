@@ -1,0 +1,251 @@
+[gd_scene format=3 uid="uid://dpakn5y14jnc7"]
+
+[ext_resource type="Script" uid="uid://djyie66dqqt3n" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cvrovdpoxkulj" path="res://models/new_board.glb" id="2_board"]
+[ext_resource type="PackedScene" uid="uid://cx7hvg6gus6v2" path="res://models/white_pawn.glb" id="3_wp"]
+[ext_resource type="PackedScene" uid="uid://dkmpx1ne80g3c" path="res://models/white_rook.glb" id="4_wr"]
+[ext_resource type="PackedScene" uid="uid://dgpftjvm2hvv6" path="res://models/white_knight.glb" id="5_wn"]
+[ext_resource type="PackedScene" uid="uid://c16bxtu76obj1" path="res://models/white_bishop.glb" id="6_wb"]
+[ext_resource type="PackedScene" uid="uid://wwkkbxncyvly" path="res://models/white_king.glb" id="7_wk"]
+[ext_resource type="PackedScene" uid="uid://bys40c6bs7e0n" path="res://models/white_queen.glb" id="8_wq"]
+[ext_resource type="PackedScene" uid="uid://cggoil5vpi33g" path="res://models/black_pawn.glb" id="9_bp"]
+[ext_resource type="PackedScene" uid="uid://cboaldxt3pw3c" path="res://models/black_rook.glb" id="10_br"]
+[ext_resource type="PackedScene" uid="uid://csxrr4nutsyp4" path="res://models/black_knight(2).glb" id="11_bn"]
+[ext_resource type="PackedScene" uid="uid://8l6jscwh4jfq" path="res://models/black_bishop.glb" id="12_bb"]
+[ext_resource type="PackedScene" uid="uid://ibowv20cda3i" path="res://models/black_king.glb" id="13_bk"]
+[ext_resource type="PackedScene" uid="uid://dq6oipotukkir" path="res://models/black_queen.glb" id="14_bq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_shield"]
+size = Vector3(0.62333, 0.02, 0.62333)
+
+[node name="ChessBoard" type="ChessBoard" unique_id=1893662096]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
+script = ExtResource("1_h2yge")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=303315616]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=664878214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.011206, 0)
+shape = SubResource("BoxShape3D_shield")
+
+[node name="new_board" parent="." unique_id=2041038818 instance=ExtResource("2_board")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00042574407, -0.0006336391, -0.000543809)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=395621789]
+transform = Transform3D(0.7999729, 0.004683075, -0.0046368768, 0, 0.5628745, 0.5684825, 0.006590282, -0.56846327, 0.56285536, 9.777565e-05, 0.32361355, 0.38644418)
+fov = 60.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1015999673]
+transform = Transform3D(0.8660254, -0.35355338, 0.35355338, 0, 0.70710677, 0.70710677, -0.5, -0.61237246, 0.61237246, 0.17344904, 0.3, 0.06801343)
+light_color = Color(0.95, 0.97, 1, 1)
+shadow_enabled = true
+
+[node name="ChessRook" type="ChessRook" parent="." unique_id=1705896830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.218164, 0.000206, -0.218164)
+
+[node name="white_rook" parent="ChessRook" unique_id=1951640365 instance=ExtResource("4_wr")]
+transform = Transform3D(-0.88, 0, -7.6932e-08, 0, 0.88, 0, 7.6932e-08, 0, -0.88, 0, 0, 0)
+
+[node name="ChessKnight" type="ChessKnight" parent="." unique_id=2003471610]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155831, 0.000206, -0.218164)
+
+[node name="white_knight" parent="ChessKnight" unique_id=548632763 instance=ExtResource("5_wn")]
+transform = Transform3D(-0.88, 0, -7.6932e-08, 0, 0.88, 0, 7.6932e-08, 0, -0.88, 0, 0, 0)
+
+[node name="ChessBishop" type="ChessBishop" parent="." unique_id=456127698]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.0934984, 0.000206, -0.218164)
+
+[node name="white_bishop" parent="ChessBishop" unique_id=247516664 instance=ExtResource("6_wb")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="ChessQueen" type="ChessQueen" parent="." unique_id=2043971370]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.0311662, 0.000206, -0.218164)
+
+[node name="white_queen" parent="ChessQueen" unique_id=1010407243 instance=ExtResource("8_wq")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="ChessKing" type="ChessKing" parent="." unique_id=506966168]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0311662, 0.000206, -0.218164)
+
+[node name="white_king" parent="ChessKing" unique_id=1410042011 instance=ExtResource("7_wk")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 0, 0, 0)
+
+[node name="ChessBishop2" type="ChessBishop" parent="." unique_id=1020548946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0934984, 0.000206, -0.218164)
+
+[node name="white_bishop" parent="ChessBishop2" unique_id=1414911254 instance=ExtResource("6_wb")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 0, 0, 0)
+
+[node name="ChessKnight2" type="ChessKnight" parent="." unique_id=491123236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155831, 0.000206, -0.218164)
+
+[node name="white_knight" parent="ChessKnight2" unique_id=1314051963 instance=ExtResource("5_wn")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 0, 0, 0)
+
+[node name="ChessRook2" type="ChessRook" parent="." unique_id=1752474094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218164, 0.000206, -0.218164)
+
+[node name="white_rook" parent="ChessRook2" unique_id=848013762 instance=ExtResource("4_wr")]
+transform = Transform3D(-0.8, 0, -6.99382e-08, 0, 0.8, 0, 6.99382e-08, 0, -0.8, 0, 0, 0)
+
+[node name="ChessPawn" type="ChessPawn" parent="." unique_id=1346663027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.218164, 0.000206, -0.155831)
+
+[node name="white_pawn" parent="ChessPawn" unique_id=704261983 instance=ExtResource("3_wp")]
+transform = Transform3D(-0.64, 0, -9.66373e-08, 0, 0.64, 0, 9.66373e-08, 0, -0.64, 0, 0, 0)
+
+[node name="ChessPawn2" type="ChessPawn" parent="." unique_id=1559171456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.155831, 0.000206, -0.155831)
+
+[node name="white_pawn" parent="ChessPawn2" unique_id=302995277 instance=ExtResource("3_wp")]
+transform = Transform3D(-0.64, 0, -9.66373e-08, 0, 0.64, 0, 9.66373e-08, 0, -0.64, 0, 0, 0)
+
+[node name="ChessPawn3" type="ChessPawn" parent="." unique_id=1786020855]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0934984, 0.000206, -0.155831)
+
+[node name="white_pawn" parent="ChessPawn3" unique_id=1907874757 instance=ExtResource("3_wp")]
+transform = Transform3D(-0.64, 0, -9.66373e-08, 0, 0.64, 0, 9.66373e-08, 0, -0.64, 0, 0, 0)
+
+[node name="ChessPawn4" type="ChessPawn" parent="." unique_id=1962805911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0311662, 0.000206, -0.155831)
+
+[node name="white_pawn" parent="ChessPawn4" unique_id=38946793 instance=ExtResource("3_wp")]
+transform = Transform3D(-0.64, 0, -9.66373e-08, 0, 0.64, 0, 9.66373e-08, 0, -0.64, 0, 0, 0)
+
+[node name="ChessPawn5" type="ChessPawn" parent="." unique_id=153488574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0311662, 0.000206, -0.155831)
+
+[node name="white_pawn" parent="ChessPawn5" unique_id=1748856602 instance=ExtResource("3_wp")]
+transform = Transform3D(-0.64, 0, -9.66373e-08, 0, 0.64, 0, 9.66373e-08, 0, -0.64, 0, 0, 0)
+
+[node name="ChessPawn6" type="ChessPawn" parent="." unique_id=137895270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0934984, 0.000206, -0.155831)
+
+[node name="white_pawn" parent="ChessPawn6" unique_id=590817595 instance=ExtResource("3_wp")]
+transform = Transform3D(-0.64, 0, -9.66373e-08, 0, 0.64, 0, 9.66373e-08, 0, -0.64, 0, 0, 0)
+
+[node name="ChessPawn7" type="ChessPawn" parent="." unique_id=1205307634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.155831, 0.000206, -0.155831)
+
+[node name="white_pawn" parent="ChessPawn7" unique_id=512746587 instance=ExtResource("3_wp")]
+transform = Transform3D(-0.64, 0, -9.66373e-08, 0, 0.64, 0, 9.66373e-08, 0, -0.64, 0, 0, 0)
+
+[node name="ChessPawn8" type="ChessPawn" parent="." unique_id=801732674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218164, 0.000206, -0.155831)
+
+[node name="white_pawn" parent="ChessPawn8" unique_id=463369506 instance=ExtResource("3_wp")]
+transform = Transform3D(-0.64, 0, -9.66373e-08, 0, 0.64, 0, 9.66373e-08, 0, -0.64, 0, 0, 0)
+
+[node name="ChessPawn9" type="ChessPawn" parent="." unique_id=1823484519]
+piece_color = "black"
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.218164, 0.000206, 0.155831)
+
+[node name="black_pawn" parent="ChessPawn9" unique_id=1295214399 instance=ExtResource("9_bp")]
+transform = Transform3D(-0.64, 0, -9.66373e-08, 0, 0.64, 0, 9.66373e-08, 0, -0.64, 0, 0, 0)
+
+[node name="ChessPawn10" type="ChessPawn" parent="." unique_id=1018925584]
+piece_color = "black"
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.155831, 0.000206, 0.155831)
+
+[node name="black_pawn" parent="ChessPawn10" unique_id=284331998 instance=ExtResource("9_bp")]
+transform = Transform3D(-0.64, 0, -9.66373e-08, 0, 0.64, 0, 9.66373e-08, 0, -0.64, 0, 0, 0)
+
+[node name="ChessPawn11" type="ChessPawn" parent="." unique_id=312101656]
+piece_color = "black"
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.0934984, 0.000206, 0.155831)
+
+[node name="black_pawn" parent="ChessPawn11" unique_id=1961526282 instance=ExtResource("9_bp")]
+transform = Transform3D(-0.64, 0, -9.66373e-08, 0, 0.64, 0, 9.66373e-08, 0, -0.64, 0, 0, 0)
+
+[node name="ChessPawn12" type="ChessPawn" parent="." unique_id=1001581944]
+piece_color = "black"
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.0311662, 0.000206, 0.155831)
+
+[node name="black_pawn" parent="ChessPawn12" unique_id=608381302 instance=ExtResource("9_bp")]
+transform = Transform3D(-0.64, 0, -9.66373e-08, 0, 0.64, 0, 9.66373e-08, 0, -0.64, 0, 0, 0)
+
+[node name="ChessPawn13" type="ChessPawn" parent="." unique_id=706175966]
+piece_color = "black"
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.0311662, 0.000206, 0.155831)
+
+[node name="black_pawn" parent="ChessPawn13" unique_id=7353579 instance=ExtResource("9_bp")]
+transform = Transform3D(-0.64, 0, -9.66373e-08, 0, 0.64, 0, 9.66373e-08, 0, -0.64, 0, 0, 0)
+
+[node name="ChessPawn14" type="ChessPawn" parent="." unique_id=905355066]
+piece_color = "black"
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.0934984, 0.000206, 0.155831)
+
+[node name="black_pawn" parent="ChessPawn14" unique_id=1663173908 instance=ExtResource("9_bp")]
+transform = Transform3D(-0.64, 0, -9.66373e-08, 0, 0.64, 0, 9.66373e-08, 0, -0.64, 0, 0, 0)
+
+[node name="ChessPawn15" type="ChessPawn" parent="." unique_id=874687670]
+piece_color = "black"
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.155831, 0.000206, 0.155831)
+
+[node name="black_pawn" parent="ChessPawn15" unique_id=1143351386 instance=ExtResource("9_bp")]
+transform = Transform3D(-0.64, 0, -9.66373e-08, 0, 0.64, 0, 9.66373e-08, 0, -0.64, 0, 0, 0)
+
+[node name="ChessPawn16" type="ChessPawn" parent="." unique_id=1408137363]
+piece_color = "black"
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.218164, 0.000206, 0.155831)
+
+[node name="black_pawn" parent="ChessPawn16" unique_id=1800655545 instance=ExtResource("9_bp")]
+transform = Transform3D(-0.64, 0, -9.66373e-08, 0, 0.64, 0, 9.66373e-08, 0, -0.64, 0, 0, 0)
+
+[node name="ChessRook3" type="ChessRook" parent="." unique_id=1801699503]
+piece_color = "black"
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.218164, 0.000206, 0.218164)
+
+[node name="black_rook" parent="ChessRook3" unique_id=820985980 instance=ExtResource("10_br")]
+transform = Transform3D(-0.88, 0, -7.6932e-08, 0, 0.88, 0, 7.6932e-08, 0, -0.88, 0, 0, 0)
+
+[node name="ChessKnight3" type="ChessKnight" parent="." unique_id=1440364292]
+piece_color = "black"
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.155831, 0.000206, 0.218164)
+
+[node name="black_knight(2)" parent="ChessKnight3" unique_id=776744292 instance=ExtResource("11_bn")]
+transform = Transform3D(-0.88, 0, -7.6932e-08, 0, 0.88, 0, 7.6932e-08, 0, -0.88, 0, 0, 0)
+
+[node name="ChessBishop3" type="ChessBishop" parent="." unique_id=1563460564]
+piece_color = "black"
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.0934984, 0.000206, 0.218164)
+
+[node name="black_bishop" parent="ChessBishop3" unique_id=2014254210 instance=ExtResource("12_bb")]
+transform = Transform3D(-0.88, 0, -7.6932e-08, 0, 0.88, 0, 7.6932e-08, 0, -0.88, -0.00083838403, 0, 0)
+
+[node name="ChessQueen2" type="ChessQueen" parent="." unique_id=486360165]
+piece_color = "black"
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.0311662, 0.000206, 0.218164)
+
+[node name="black_queen" parent="ChessQueen2" unique_id=159581716 instance=ExtResource("14_bq")]
+transform = Transform3D(-0.88, 0, -1.32876e-07, 0, 0.88, 0, 1.32876e-07, 0, -0.88, 0.00037786178, 0, 0)
+
+[node name="ChessKing2" type="ChessKing" parent="." unique_id=1188457328]
+piece_color = "black"
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.0311662, 0.000206, 0.218164)
+
+[node name="black_king" parent="ChessKing2" unique_id=1240337439 instance=ExtResource("13_bk")]
+transform = Transform3D(-0.88, 0, -7.6932e-08, 0, 0.88, 0, 7.6932e-08, 0, -0.88, 0, 0, 0)
+
+[node name="ChessBishop4" type="ChessBishop" parent="." unique_id=1925575147]
+piece_color = "black"
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.0934984, 0.000206, 0.218164)
+
+[node name="black_bishop" parent="ChessBishop4" unique_id=137589277 instance=ExtResource("12_bb")]
+transform = Transform3D(-0.88, 0, -1.32876e-07, 0, 0.88, 0, 1.32876e-07, 0, -0.88, -0.0014193803, 0, 0)
+
+[node name="ChessKnight4" type="ChessKnight" parent="." unique_id=1765730929]
+piece_color = "black"
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.155831, 0.000206, 0.218164)
+
+[node name="black_knight(2)" parent="ChessKnight4" unique_id=1963855052 instance=ExtResource("11_bn")]
+transform = Transform3D(-0.88, 0, -7.6932e-08, 0, 0.88, 0, 7.6932e-08, 0, -0.88, 0.0002669394, 0, 0)
+
+[node name="ChessRook4" type="ChessRook" parent="." unique_id=420763000]
+piece_color = "black"
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.218164, 0.000206, 0.218164)
+
+[node name="black_rook" parent="ChessRook4" unique_id=1294707532 instance=ExtResource("10_br")]
+transform = Transform3D(-0.88, 0, -7.6932e-08, 0, 0.88, 0, 7.6932e-08, 0, -0.88, 0, 0, 0)
+
+[connection signal="input_event" from="Area3D" to="." method="_on_glass_shield_clicked"]
